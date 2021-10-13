@@ -19,5 +19,18 @@
             HIGH,
             VERY_HIGH
         };
+
+        public static TriangularNumber ConvertToTriangularFromLinguistic(string linguisticTerm) =>
+            linguisticTerm switch
+            {
+                VERY_LOW => new TriangularNumber(0, 0, 0.1f),
+                LOW => new TriangularNumber(0, 0.1f, 0.3f),
+                MEDIUM_LOW => new TriangularNumber(0.1f, 0.3f, 0.5f),
+                MEDIUM => new TriangularNumber(0.3f, 0.5f, 0.7f),
+                MEDIUM_HIGH => new TriangularNumber(0.5f, 0.7f, 0.9f),
+                HIGH => new TriangularNumber(0.7f, 0.7f, 1f),
+                VERY_HIGH => new TriangularNumber(0.9f, 1f, 1f),
+                _ => new TriangularNumber()
+            };      
     }
 }
