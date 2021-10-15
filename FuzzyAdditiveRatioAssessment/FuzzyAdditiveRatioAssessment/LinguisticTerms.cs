@@ -1,4 +1,6 @@
-﻿namespace FuzzyAdditiveRatioAssessment
+﻿using System.Text;
+
+namespace FuzzyAdditiveRatioAssessment
 {
     public static class LinguisticTerms
     {
@@ -31,6 +33,26 @@
                 HIGH => new TriangularNumber(0.7f, 0.7f, 1f),
                 VERY_HIGH => new TriangularNumber(0.9f, 1f, 1f),
                 _ => new TriangularNumber()
-            };      
+            };
+
+        public static string GroupedLingusticTermsToString(string[] groupedLingusticTerms)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("[");
+            foreach(string term in groupedLingusticTerms)
+                stringBuilder.Append($" {term}");
+            stringBuilder.Append("]");
+            return stringBuilder.ToString();
+        }
+
+        public static string GroupedTriangularTermsToString(TriangularNumber[] groupedLingusticTerms)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("[");
+            foreach (TriangularNumber term in groupedLingusticTerms)
+                stringBuilder.Append($" {term}");
+            stringBuilder.Append("]");
+            return stringBuilder.ToString();
+        }
     }
 }
